@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# To run this, submit this job from repo root directory, ie
+# `qsub assignment-1/run_test.sh``
+
+# Job name
+#PBS -N assignment_1
+
+# Resource requirements
+#PBS -l select=1:ncpus=128:mpiprocs=1:ompthreads=1:mem=10000Mb
+
+# Time required in hh:mm:ss
+#PBS -l walltime=0:10:00
+
+# File to contain standard out and error.
+#PBS -j oe
+#PBS -o qsub.log
+
+if [ -n "$PBS_O_WORKDIR" ]; then
+    # Change directory to $PBS_O_WORKDIR
+    cd "$PBS_O_WORKDIR"
+
+    module load GCC
+    module load CMake
+
+    # CMake
+    mkdir -p build
+    pushd build
+
+    cmake .. 2>&1 | tee cmake.log
+
+    if [ $? -eq 0 ]; then
+        echo "cmake: pass"
+    else
+        echo "cmake: fail"
+        echo "Read the cmake.log below to investigate."
+        cat cmake.log
+        exit 1
+    fi
+
+    # Make
+    make area 2>&1 | tee make.log
+
+    if [ $? -eq 0 ]; then
+        echo "make: pass"
+    else
+        echo "make: fail"
+        echo "Read the make.log below to investigate."
+        cat make.log
+        exit 1
+    fi
+    popd
+fi
+
+# Tests
+# Measure serial execution time
+start_time=$(date +%s%3N)
+OMP_NUM_THREADS=1 build/area
+end_time=$(date +%s%3N)
+serial_time=$((end_time - start_time))
+echo "Serial time: $serial_time ms."
+
+for i in 1 16 32 64 128; do
+    # Measure parallelized execution time
+    start_time=$(date +%s%3N)
+    OMP_NUM_THREADS=$i build/area > area-$i.txt 2>&1
+    end_time=$(date +%s%3N)
+    parallelized_time=$((end_time - start_time))
+    echo "Time with $i threads: $parallelized_time ms."
+
+    # Compare the output with the expected output
+    if diff area-$i.txt assignment-2/expected_output.txt > /dev/null; then
+        echo "md-$i: pass"
+
+        # Calculate parallel efficiency using python commandline
+        parallel_efficiency=$(python3.11 -c "print($serial_time / ($parallelized_time * $i))")
+        echo "Parallel efficiency with $i threads: $parallel_efficiency"
+    else
+        echo "area-$i: fail"
+        echo "Differences detected. See area-$i.txt below to investigate."
+        cat area-$i.txt
+        exit 1
+    fi
+done

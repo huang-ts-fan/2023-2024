@@ -1,0 +1,68 @@
+#!/bin/bash
+
+# To run this, submit this job from repo root directory, ie
+# `qsub assignment-1/run_test.sh``
+
+# Job name
+#PBS -N assignment_1
+
+# Resource requirements
+#PBS -l select=1:ncpus=128:mpiprocs=1:ompthreads=1:mem=10000Mb
+
+# Time required in hh:mm:ss
+#PBS -l walltime=0:10:00
+
+# File to contain standard out and error.
+#PBS -j oe
+#PBS -o qsub.log
+
+if [ -n "$PBS_O_WORKDIR" ]; then
+    # Change directory to $PBS_O_WORKDIR
+    cd "$PBS_O_WORKDIR"
+
+    module load GCC
+    module load CMake
+
+    # CMake
+    mkdir -p build
+    pushd build
+
+    cmake .. 2>&1 | tee cmake.log
+
+    if [ $? -eq 0 ]; then
+        echo "cmake: pass"
+    else
+        echo "cmake: fail"
+        echo "Read the cmake.log below to investigate."
+        cat cmake.log
+        exit 1
+    fi
+
+    # Make
+    make HelloWorld 2>&1 | tee make.log
+
+    if [ $? -eq 0 ]; then
+        echo "make: pass"
+    else
+        echo "make: fail"
+        echo "Read the make.log below to investigate."
+        cat make.log
+        exit 1
+    fi
+    popd
+fi
+
+# Tests
+for i in 1 16; do
+    OMP_NUM_THREADS=$i build/HelloWorld > hello_world-$i.txt 2>&1
+
+    # Compare the output with the expected output
+    if diff hello_world-$i.txt assignment-1/expected_output_$i.txt > /dev/null; then
+        echo "HelloWorld-$i: pass"
+    else
+        echo "HelloWorld-$i: fail"
+        echo "Differences detected. Read the hello_world-$i.txt below to investigate."
+        cat hello_world-$i.txt
+        exit 1
+    fi
+done

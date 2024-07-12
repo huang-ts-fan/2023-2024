@@ -1,0 +1,15 @@
+name: ese-msc
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+ - pip
+ - ipython
+ - jupyter
+ - numpy
+ - scipy
+ - matplotlib
+ - ipywidgets
+  - pip:
+    - pyqg
+    - mpl_toolkits

@@ -1,0 +1,23 @@
+# Job name
+#PBS -N hello_world
+
+# Resource requirements
+#PBS -l select=1:ncpus=128:mpiprocs=1:ompthreads=1:mem=10000Mb
+
+# Time required in hh:mm:ss
+#PBS -l walltime=0:10:00
+
+# Files to contain standard error and standard output
+#PBS -o stdout
+#PBS -e stderr
+
+export OMP_NUM_THREADS=16
+
+# For debugging I like to confirm which CPU job executed on.
+lscpu &> lscpu.txt
+
+# Makes sure that when our job starts it cd's to whatever directory we submitted job from..
+cd $PBS_O_WORKDIR
+
+# Run the code
+./hello_world

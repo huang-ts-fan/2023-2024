@@ -1,0 +1,1 @@
+Area of Mandlebrot set = 1.51069 +/- 0.000302138
