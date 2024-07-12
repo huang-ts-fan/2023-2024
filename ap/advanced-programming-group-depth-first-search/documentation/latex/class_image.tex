@@ -1,0 +1,220 @@
+\doxysection{Image Class Reference}
+\label{class_image}\index{Image@{Image}}
+
+
+Represents an image, encapsulating data and operations for image processing.  
+
+
+
+
+{\ttfamily \#include $<$Image.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\label{class_image_a58edd1c45b4faeb5f789b0d036d02313} 
+{\bfseries Image} ()
+\begin{DoxyCompactList}\small\item\em Default constructor, initializes an empty image with zero width, height, and channels. \end{DoxyCompactList}\item 
+\textbf{ Image} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Overloaded constructor that loads an image from a specified file. \end{DoxyCompactList}\item 
+\label{class_image_a0294f63700543e11c0f0da85601c7ae5} 
+{\bfseries $\sim$\+Image} ()
+\begin{DoxyCompactList}\small\item\em Destructor, used for cleaning up resources. Currently does not perform any specific action. \end{DoxyCompactList}\item 
+bool \textbf{ load\+Image} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Loads an image from a file. \end{DoxyCompactList}\item 
+bool \textbf{ save\+Image} (const std\+::string \&filename) const
+\begin{DoxyCompactList}\small\item\em Saves the image to a file. \end{DoxyCompactList}\item 
+int \textbf{ get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Returns the width of the image in pixels. \end{DoxyCompactList}\item 
+int \textbf{ get\+Height} () const
+\begin{DoxyCompactList}\small\item\em Returns the height of the image in pixels. \end{DoxyCompactList}\item 
+int \textbf{ get\+Channels} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of color channels in the image. \end{DoxyCompactList}\item 
+const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned char $>$ $>$ $>$ \& \textbf{ get\+Data} () const
+\begin{DoxyCompactList}\small\item\em Provides read-\/only access to the image\textquotesingle{}s raw pixel data. \end{DoxyCompactList}\item 
+void \textbf{ set\+Data} (const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned char $>$ $>$ $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Sets the image\textquotesingle{}s pixel data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \textbf{ Image} \textbf{ convert\+To\+Grayscale} (const \textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Converts an image to grayscale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an image, encapsulating data and operations for image processing. 
+
+The \doxyref{Image}{p.}{class_image} class is designed to manage and manipulate image data. It supports loading and saving images, accessing image properties (such as width, height, and color channels), and performing basic image processing operations like conversion to grayscale. The class uses a 3D vector to store image data, which accommodates both color (RGB) and grayscale images, enabling a wide range of image processing tasks.\doxysubsubsection{Constructors\+:}\label{class_image_autotoc_md1}
+
+\begin{DoxyItemize}
+\item \doxyref{Image()}{p.}{class_image_a58edd1c45b4faeb5f789b0d036d02313}\+: Default constructor, initializes an empty image.
+\item explicit \doxyref{Image(const std\+::string\& filename)}{p.}{class_image_a81e88caba6ef6c0ed639bf1f25e9d441}\+: Initializes an image by loading data from the specified file.
+\end{DoxyItemize}\doxysubsubsection{Destructor\+:}\label{class_image_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \doxyref{$\sim$\+Image()}{p.}{class_image_a0294f63700543e11c0f0da85601c7ae5}\+: Cleans up resources.
+\end{DoxyItemize}\doxysubsubsection{Member Functions\+:}\label{class_image_autotoc_md3}
+
+\begin{DoxyItemize}
+\item \doxyref{load\+Image(const std\+::string\& filename)}{p.}{class_image_a1dd37460cb5db530dc8d80520d76e28f}\+: Loads image data from a file.
+\item \doxyref{save\+Image(const std\+::string\& filename) const}{p.}{class_image_a9e4f8cd3ab347494ea95f6e1567b9cf7}\+: Saves the image data to a file.
+\item \doxyref{get\+Width() const}{p.}{class_image_a36bcae4838228d574738249a87dc4464}\+: Returns the width of the image.
+\item \doxyref{get\+Height() const}{p.}{class_image_a1cd7587f88b6932b5269051d1ba08ff9}\+: Returns the height of the image.
+\item \doxyref{get\+Channels() const}{p.}{class_image_a821f52f44e80051e48b3f2689ba48611}\+: Returns the number of color channels in the image.
+\item \doxyref{get\+Data() const}{p.}{class_image_afa2228a7919fdf75ef934e0b8474fb50}\+: Provides read-\/only access to the image data.
+\item \doxyref{set\+Data(const std\+::vector$<$std\+::vector$<$std\+::vector$<$unsigned char$>$ $>$ $>$\& data)}{p.}{class_image_ad563178d672be8e950f66c46a55c1f48}\+: Sets the image\textquotesingle{}s data.
+\item static \doxyref{convert\+To\+Grayscale(const Image\& img)}{p.}{class_image_a317029eec98282ff158578bd908431a9}\+: Converts a given image to grayscale and returns the new image.
+\end{DoxyItemize}\doxysubsubsection{Private Member Variables\+:}\label{class_image_autotoc_md4}
+
+\begin{DoxyItemize}
+\item width, height, channels\+: Dimensions and channel information of the image.
+\item data\+: Stores the image\textquotesingle{}s pixel data, accommodating both color and grayscale formats.
+\end{DoxyItemize}\doxysubsubsection{Usage\+:}\label{class_image_autotoc_md5}
+The \doxyref{Image}{p.}{class_image} class is intended for use in applications requiring direct manipulation of image pixels, such as in computer vision, image processing, and graphic design tools. It provides a foundational structure that can be extended or used in conjunction with other classes for more complex image processing operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_image_a81e88caba6ef6c0ed639bf1f25e9d441} 
+\index{Image@{Image}!Image@{Image}}
+\index{Image@{Image}!Image@{Image}}
+\doxysubsubsection{Image()}
+{\footnotesize\ttfamily Image\+::\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Overloaded constructor that loads an image from a specified file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the image file to be loaded. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\label{class_image_a317029eec98282ff158578bd908431a9} 
+\index{Image@{Image}!convertToGrayscale@{convertToGrayscale}}
+\index{convertToGrayscale@{convertToGrayscale}!Image@{Image}}
+\doxysubsubsection{convertToGrayscale()}
+{\footnotesize\ttfamily \textbf{ Image} Image\+::convert\+To\+Grayscale (\begin{DoxyParamCaption}\item[{const \textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts an image to grayscale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image to be converted to grayscale. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new \doxyref{Image}{p.}{class_image} object containing the grayscale image. 
+\end{DoxyReturn}
+\label{class_image_a821f52f44e80051e48b3f2689ba48611} 
+\index{Image@{Image}!getChannels@{getChannels}}
+\index{getChannels@{getChannels}!Image@{Image}}
+\doxysubsubsection{getChannels()}
+{\footnotesize\ttfamily int Image\+::get\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the number of color channels in the image. 
+
+\begin{DoxyReturn}{Returns}
+The number of channels (e.\+g., 3 for RGB, 1 for grayscale). 
+\end{DoxyReturn}
+\label{class_image_afa2228a7919fdf75ef934e0b8474fb50} 
+\index{Image@{Image}!getData@{getData}}
+\index{getData@{getData}!Image@{Image}}
+\doxysubsubsection{getData()}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned char $>$ $>$ $>$ \& Image\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Provides read-\/only access to the image\textquotesingle{}s raw pixel data. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the image\textquotesingle{}s data matrix. 
+\end{DoxyReturn}
+\label{class_image_a1cd7587f88b6932b5269051d1ba08ff9} 
+\index{Image@{Image}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Image@{Image}}
+\doxysubsubsection{getHeight()}
+{\footnotesize\ttfamily int Image\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the height of the image in pixels. 
+
+\begin{DoxyReturn}{Returns}
+The height of the image. 
+\end{DoxyReturn}
+\label{class_image_a36bcae4838228d574738249a87dc4464} 
+\index{Image@{Image}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Image@{Image}}
+\doxysubsubsection{getWidth()}
+{\footnotesize\ttfamily int Image\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the width of the image in pixels. 
+
+\begin{DoxyReturn}{Returns}
+The width of the image. 
+\end{DoxyReturn}
+\label{class_image_a1dd37460cb5db530dc8d80520d76e28f} 
+\index{Image@{Image}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!Image@{Image}}
+\doxysubsubsection{loadImage()}
+{\footnotesize\ttfamily bool Image\+::load\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Loads an image from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the image file to be loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the image is loaded successfully, false otherwise. 
+\end{DoxyReturn}
+\label{class_image_a9e4f8cd3ab347494ea95f6e1567b9cf7} 
+\index{Image@{Image}!saveImage@{saveImage}}
+\index{saveImage@{saveImage}!Image@{Image}}
+\doxysubsubsection{saveImage()}
+{\footnotesize\ttfamily bool Image\+::save\+Image (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption}) const}
+
+
+
+Saves the image to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path where the image will be saved. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the image is saved successfully, false otherwise. 
+\end{DoxyReturn}
+\label{class_image_ad563178d672be8e950f66c46a55c1f48} 
+\index{Image@{Image}!setData@{setData}}
+\index{setData@{setData}!Image@{Image}}
+\doxysubsubsection{setData()}
+{\footnotesize\ttfamily void Image\+::set\+Data (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ unsigned char $>$ $>$ $>$ \&}]{new\+Data }\end{DoxyParamCaption})}
+
+
+
+Sets the image\textquotesingle{}s pixel data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & A 3D vector containing the new pixel data for the image. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Image.\+h\item 
+src/Image.\+cpp\end{DoxyCompactItemize}

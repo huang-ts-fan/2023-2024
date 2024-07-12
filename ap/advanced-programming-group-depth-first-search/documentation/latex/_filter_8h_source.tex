@@ -1,0 +1,48 @@
+\doxysection{Filter.\+h}
+\label{_filter_8h_source}\index{src/Filter.h@{src/Filter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Group\ Name:\ Depth\ First\ Search}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Group\ Members:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ -\/\ Alex\ Njeumi(Acse-\/ann23)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ -\/\ Yixiao\ Jing(acse-\/yj823)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ -\/\ Andrei\ Danila(edsml-\/acd23)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ -\/\ Fan\ Huang(acse-\/fh223)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/\ Shrreya\ Behll(edsml-\/sb3323)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ -\/\ Wenxin\ Zhang(acse-\/wz2723)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ FILTER\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ FILTER\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}2D/edge\_detection/edge\_detection.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}2D/image\_blur/image\_blur.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}2D/colour\_correction/colour\_correction.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}3D/threeD\_image\_blur.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }Filter\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Colour\ correction\ functions}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyGrayScale(Image\&\ img);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyBrightnessDullness(Image\&\ img,\ \textcolor{keywordtype}{int}\ brightness);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyGrayscaleEqualization(Image\&\ img);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyRGB\_HSVEqualization(Image\&\ img);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyRGB\_HSLEqualization(Image\&\ img);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyThreshold(Image\&\ img,\ \textcolor{keywordtype}{char}\ L\_or\_V\_or\_G,\ \textcolor{keywordtype}{float}\ threshold);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applySaltPepperNoise(Image\&\ img,\ \textcolor{keywordtype}{int}\ percentage);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ 2D\ Blur\ functions}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyBoxBlur(Image\&\ img,\ \textcolor{keywordtype}{int}\ blurSize);}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyGaussianBlur(Image\&\ img,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{int}\ kernelSize);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyMedianBlur(Image\&\ img,\ \textcolor{keywordtype}{int}\ kernelSize);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Edge\ detection\ functions}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyEdgeDetection(Image\&\ img,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ operatorX[3][3],\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ operatorY[3][3]);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyRobertsCrossEdgeDetection(Image\&\ img);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ 3D\ Blur\ functions}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ apply3DGaussianBlur(Volume\ \&volume,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{double}\ sigma\ =\ 2.0);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ apply3DMedianFilter(Volume\ \&volume,\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILTER\_H}}
+
+\end{DoxyCode}

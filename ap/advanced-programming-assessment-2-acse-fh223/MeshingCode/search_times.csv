@@ -1,0 +1,6 @@
+NodeCount,DirectSearchTime,OctreeSearchTime
+2000,189,2
+4000,738,2
+6000,1660,4
+8000,2938,7
+10000,4582,8

@@ -1,0 +1,110 @@
+\doxysection{Slice Class Reference}
+\label{class_slice}\index{Slice@{Slice}}
+
+
+Manages a single slice of 3D volumetric data, providing functionalities for handling and exporting the slice.  
+
+
+
+
+{\ttfamily \#include $<$Slice.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Slice} (unsigned char $\ast$data, int width, int height)
+\begin{DoxyCompactList}\small\item\em Initializes a slice with given data and dimensions. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Slice} ()
+\begin{DoxyCompactList}\small\item\em Destructor for the \doxyref{Slice}{p.}{class_slice} class. \end{DoxyCompactList}\item 
+void \textbf{ save\+Slice} (const std\+::string \&axis, int index, const std\+::string \&filename, int depth, std\+::vector$<$ unsigned char $\ast$ $>$ \&slices)
+\begin{DoxyCompactList}\small\item\em Saves a particular slice to an image file, based on the specified orientation and index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a single slice of 3D volumetric data, providing functionalities for handling and exporting the slice. 
+
+The \doxyref{Slice}{p.}{class_slice} class encapsulates the data for a single 2D slice extracted from a 3D volume, along with its dimensions. It is designed to handle operations specific to a single slice, such as saving the slice data to an image file. This class simplifies the manipulation and storage of 2D sections from larger volumetric datasets, which is common in medical imaging, scientific visualization, and 3D data analysis.\doxysubsubsection{Constructor\+:}\label{class_slice_autotoc_md6}
+
+\begin{DoxyItemize}
+\item \doxyref{Slice(unsigned char$\ast$ data, int width, int height)}{p.}{class_slice_af2294a59ae971401b35c004f5c67a8bb}\+: Initializes a new slice with specified data and dimensions.
+\end{DoxyItemize}\doxysubsubsection{Destructor\+:}\label{class_slice_autotoc_md7}
+
+\begin{DoxyItemize}
+\item \doxyref{$\sim$\+Slice()}{p.}{class_slice_af5eca11ee40a61159787ec35f2f1ed27}\+: Cleans up resources, ensuring proper memory management for the slice\textquotesingle{}s data.
+\end{DoxyItemize}\doxysubsubsection{Member Function\+:}\label{class_slice_autotoc_md8}
+
+\begin{DoxyItemize}
+\item \doxyref{save\+Slice(const std\+::string\& axis, int index, const std\+::string\& filename, int depth, std\+::vector$<$unsigned char$\ast$$>$\& slices)}{p.}{class_slice_afe7b0f3c5120d4f7d60d30009ffaf21a}\+: Saves the current slice to a file, potentially involving additional processing based on the volumetric context and desired orientation.
+\end{DoxyItemize}\doxysubsubsection{Private Members\+:}\label{class_slice_autotoc_md9}
+
+\begin{DoxyItemize}
+\item data\+: Pointer to the slice\textquotesingle{}s pixel data.
+\item width, height\+: Dimensions of the slice, specifying its width and height in pixels. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_slice_af2294a59ae971401b35c004f5c67a8bb} 
+\index{Slice@{Slice}!Slice@{Slice}}
+\index{Slice@{Slice}!Slice@{Slice}}
+\doxysubsubsection{Slice()}
+{\footnotesize\ttfamily Slice\+::\+Slice (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Initializes a slice with given data and dimensions. 
+
+This constructor takes ownership of the provided data pointer, setting up the slice dimensions according to the provided width and height. It\textquotesingle{}s designed to encapsulate a single 2D slice\textquotesingle{}s data for further manipulation or analysis.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the raw pixel data of the slice. \\
+\hline
+{\em width} & The width of the slice in pixels. \\
+\hline
+{\em height} & The height of the slice in pixels. \\
+\hline
+\end{DoxyParams}
+\label{class_slice_af5eca11ee40a61159787ec35f2f1ed27} 
+\index{Slice@{Slice}!````~Slice@{$\sim$Slice}}
+\index{````~Slice@{$\sim$Slice}!Slice@{Slice}}
+\doxysubsubsection{$\sim$Slice()}
+{\footnotesize\ttfamily Slice\+::$\sim$\+Slice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the \doxyref{Slice}{p.}{class_slice} class. 
+
+Cleans up resources associated with the slice. If the slice owns its data (as indicated by its design), the destructor would be responsible for freeing that data to prevent memory leaks. However, specific behavior may depend on ownership semantics which are not detailed here. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_slice_afe7b0f3c5120d4f7d60d30009ffaf21a} 
+\index{Slice@{Slice}!saveSlice@{saveSlice}}
+\index{saveSlice@{saveSlice}!Slice@{Slice}}
+\doxysubsubsection{saveSlice()}
+{\footnotesize\ttfamily void Slice\+::save\+Slice (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{axis,  }\item[{int}]{index,  }\item[{const std\+::string \&}]{filename,  }\item[{int}]{depth,  }\item[{std\+::vector$<$ unsigned char $\ast$ $>$ \&}]{slices }\end{DoxyParamCaption})}
+
+
+
+Saves a particular slice to an image file, based on the specified orientation and index. 
+
+This method supports saving slices from a volumetric dataset in three orientations (X, Y, Z). It selects the appropriate slice based on the axis and index, then saves this slice to a file. For axes X and Y, it constructs the slice by aggregating data across all Z slices at the given index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em axis} & The axis along which the slice is taken (\textquotesingle{}X\textquotesingle{}, \textquotesingle{}Y\textquotesingle{}, or \textquotesingle{}Z\textquotesingle{}). Determines the orientation of the slice. \\
+\hline
+{\em index} & The index of the slice along the specified axis. Must be within the bounds of the volume dimensions. \\
+\hline
+{\em filename} & The path and filename where the slice image will be saved. The image is saved in PNG format. \\
+\hline
+{\em depth} & The total number of slices in the Z direction (used for validation). \\
+\hline
+{\em slices} & A vector of pointers, each pointing to the data of one Z slice in the volume. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Slice.\+h\item 
+src/Slice.\+cpp\end{DoxyCompactItemize}

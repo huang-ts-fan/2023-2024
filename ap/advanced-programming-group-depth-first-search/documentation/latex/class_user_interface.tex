@@ -1,0 +1,48 @@
+\doxysection{User\+Interface Class Reference}
+\label{class_user_interface}\index{UserInterface@{UserInterface}}
+
+
+Facilitates user interactions for image and volume processing tasks.  
+
+
+
+
+{\ttfamily \#include $<$User\+Interface.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ image\+Processing} ()
+\begin{DoxyCompactList}\small\item\em Entry point for the image processing interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Facilitates user interactions for image and volume processing tasks. 
+
+This class provides a command-\/line interface for applying a range of image processing techniques to 2D images and 3D volumes. It abstracts the complexities of the underlying operations, presenting the user with a set of clear options for loading, processing, and saving images and volumes. The class is structured around static methods, reflecting its role as a utility rather than an entity to be instantiated.\doxysubsubsection{Key Functionalities\+:}\label{class_user_interface_autotoc_md10}
+
+\begin{DoxyItemize}
+\item \doxyref{Image}{p.}{class_image} processing\+: Allows the user to apply edge detection, blurring, color correction, and smoothing to 2D images.
+\item \doxyref{Volume}{p.}{class_volume} processing\+: Enables the user to apply projections, slicing, and blurring to 3D volumetric data.
+\item Loading and saving\+: Provides mechanisms for loading images and volumes from user-\/specified paths and saving the processed outputs.
+\end{DoxyItemize}
+
+The user interface is designed to be extensible, with the potential to add more processing functions as needed. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_user_interface_aed4110da24790cc4559bc56d2cc2445c} 
+\index{UserInterface@{UserInterface}!imageProcessing@{imageProcessing}}
+\index{imageProcessing@{imageProcessing}!UserInterface@{UserInterface}}
+\doxysubsubsection{imageProcessing()}
+{\footnotesize\ttfamily void User\+Interface\+::image\+Processing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Entry point for the image processing interface. 
+
+Prompts the user to choose between 2D and 3D data processing, directing them to the appropriate interface based on their choice. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/User\+Interface.\+h\item 
+src/User\+Interface.\+cpp\end{DoxyCompactItemize}

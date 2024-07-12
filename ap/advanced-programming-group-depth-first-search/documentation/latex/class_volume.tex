@@ -1,0 +1,248 @@
+\doxysection{Volume Class Reference}
+\label{class_volume}\index{Volume@{Volume}}
+
+
+Manages and processes 3D volumetric data.  
+
+
+
+
+{\ttfamily \#include $<$Volume.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Volume} ()
+\begin{DoxyCompactList}\small\item\em Initializes an empty volume with zero dimensions. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Volume} ()
+\begin{DoxyCompactList}\small\item\em Cleans up loaded volume data. \end{DoxyCompactList}\item 
+bool \textbf{ load\+From\+Directory} (const std\+::string \&directory, int start\+Index, int final\+Index)
+\begin{DoxyCompactList}\small\item\em Loads volume data from a directory of image files. \end{DoxyCompactList}\item 
+bool \textbf{ load\+From\+Directory\+\_\+filter} (const std\+::string \&directory\+Path, int start\+Index, int final\+Index)
+\begin{DoxyCompactList}\small\item\em Loads and optionally filters volume data from a directory of image files. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned char $\ast$ $>$ \textbf{ convert\+To\+Char\+Pointers} () const
+\begin{DoxyCompactList}\small\item\em Converts the volume\textquotesingle{}s data into a vector of unsigned char pointers. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \& \textbf{ get\+Volume\+Double\+Non\+Const} ()
+\begin{DoxyCompactList}\small\item\em Accessors for the volume data in double-\/precision format. \end{DoxyCompactList}\item 
+\label{class_volume_ab888ecbfe457e25374e0705d4ff8c252} 
+const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \& {\bfseries get\+Volume\+Double} () const
+\item 
+void \textbf{ set\+Data} (std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \&volume\+Data)
+\begin{DoxyCompactList}\small\item\em Sets the volume\textquotesingle{}s data with a provided 3D vector. \end{DoxyCompactList}\item 
+int \textbf{ get\+Width} () const
+\begin{DoxyCompactList}\small\item\em Accessors for the dimensions of the volume. \end{DoxyCompactList}\item 
+\label{class_volume_a33c75b641d988efed2ce4d2568e7269e} 
+int {\bfseries get\+Height} () const
+\item 
+\label{class_volume_ab082670ea100c39d94fefc77ac83c4d8} 
+int {\bfseries get\+Depth} () const
+\item 
+std\+::vector$<$ unsigned char $\ast$ $>$ \& \textbf{ get\+Slices} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to the raw slice data. \end{DoxyCompactList}\item 
+void \textbf{ save\+Volume} (const std\+::string \&directory) const
+\begin{DoxyCompactList}\small\item\em Saves the volume data back to a series of image files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages and processes 3D volumetric data. 
+
+The \doxyref{Volume}{p.}{class_volume} class is designed to handle 3D data, offering functionalities to load volumetric data from a directory containing image slices, convert this data for processing, and manipulate or analyze the volume through various operations. It supports both raw pixel data management and operations on double-\/precision volumetric data, accommodating a wide range of applications from medical imaging to scientific visualization.\doxysubsubsection{Constructors\+:}\label{class_volume_autotoc_md11}
+
+\begin{DoxyItemize}
+\item \doxyref{Volume()}{p.}{class_volume_a7d3bb81da95df85009b9f3ddd985cd9f}\+: Initializes an empty volume with zero dimensions.
+\end{DoxyItemize}\doxysubsubsection{Destructor\+:}\label{class_volume_autotoc_md12}
+
+\begin{DoxyItemize}
+\item \doxyref{$\sim$\+Volume()}{p.}{class_volume_ad5d2015f5c0fea005f02be8f6d60b212}\+: Ensures proper cleanup of allocated resources.
+\end{DoxyItemize}\doxysubsubsection{Member Functions\+:}\label{class_volume_autotoc_md13}
+
+\begin{DoxyItemize}
+\item \doxyref{load\+From\+Directory(const std\+::string\&, int, int)}{p.}{class_volume_ad9ce9f71cf6fdd61ea6f33e076ee22a7}\+: Loads volumetric data from a sequence of image files.
+\item \doxyref{load\+From\+Directory\+\_\+filter(const std\+::string\&, int, int)}{p.}{class_volume_aecfd4f9e2f8e3b53c3e59a1bcd880eb4}\+: Loads and applies a filtering operation during load.
+\item \doxyref{convert\+To\+Char\+Pointers() const}{p.}{class_volume_a52168c4834a4aa9e0419bc4ce2fce753}\+: Converts and returns the volume data as a vector of unsigned char pointers.
+\item \doxyref{get\+Volume\+Double\+Non\+Const()}{p.}{class_volume_a54985dd879318e17a0f7496c17e9002d}, get\+Volume\+Double() const\+: Accessors for the volume data in double-\/precision format.
+\item \doxyref{set\+Data(std\+::vector$<$std\+::vector$<$std\+::vector$<$double$>$$>$$>$ \&)}{p.}{class_volume_acb8c7f0f838b157f06180e1ae4b3f1b6}\+: Sets the volume data with a provided 3D vector.
+\item \doxyref{get\+Width() const}{p.}{class_volume_a6421ea4fb9b499e51499531dbc6999d5}, get\+Height() const, get\+Depth() const\+: Accessors for the volume dimensions.
+\item \doxyref{get\+Slices()}{p.}{class_volume_a9f940dfda8ebb25f825563f657e236d6}\+: Returns a reference to the raw slice data.
+\item \doxyref{save\+Volume(const std\+::string\&) const}{p.}{class_volume_aab3289b2569da75d25ff41d72053a0d0}\+: Saves the volume data back to a series of image files.
+\end{DoxyItemize}\doxysubsubsection{Private Members\+:}\label{class_volume_autotoc_md14}
+
+\begin{DoxyItemize}
+\item width, height, depth\+: Dimensions of the volume.
+\item slices\+: Vector storing pointers to raw slice data.
+\item volume\+Double\+: 3D vector for storing volume data in double precision, useful for advanced processing.
+\item clamp$<$\+T$>$(\+T value, T low, T high) const\+: Utility template function to clamp values within a specified range. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\label{class_volume_a7d3bb81da95df85009b9f3ddd985cd9f} 
+\index{Volume@{Volume}!Volume@{Volume}}
+\index{Volume@{Volume}!Volume@{Volume}}
+\doxysubsubsection{Volume()}
+{\footnotesize\ttfamily Volume\+::\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes an empty volume with zero dimensions. 
+
+Sets up an empty volume with no width, height, or depth, and initializes internal structures for storing volume data. This constructor prepares the \doxyref{Volume}{p.}{class_volume} object for loading volumetric data. \label{class_volume_ad5d2015f5c0fea005f02be8f6d60b212} 
+\index{Volume@{Volume}!````~Volume@{$\sim$Volume}}
+\index{````~Volume@{$\sim$Volume}!Volume@{Volume}}
+\doxysubsubsection{$\sim$Volume()}
+{\footnotesize\ttfamily Volume\+::$\sim$\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cleans up loaded volume data. 
+
+Frees the memory allocated for storing the slices of the volume, ensuring no memory leaks occur. This destructor is crucial for managing the lifecycle of the volumetric data. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_volume_a52168c4834a4aa9e0419bc4ce2fce753} 
+\index{Volume@{Volume}!convertToCharPointers@{convertToCharPointers}}
+\index{convertToCharPointers@{convertToCharPointers}!Volume@{Volume}}
+\doxysubsubsection{convertToCharPointers()}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned char $\ast$ $>$ Volume\+::convert\+To\+Char\+Pointers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the volume\textquotesingle{}s data into a vector of unsigned char pointers. 
+
+Useful for interfacing with APIs that require raw pointers to pixel data. This method may involve converting the internal double-\/precision data into 8-\/bit unsigned char values.
+
+\begin{DoxyReturn}{Returns}
+A vector of pointers, each pointing to the data of one slice in the volume. 
+\end{DoxyReturn}
+\label{class_volume_a9f940dfda8ebb25f825563f657e236d6} 
+\index{Volume@{Volume}!getSlices@{getSlices}}
+\index{getSlices@{getSlices}!Volume@{Volume}}
+\doxysubsubsection{getSlices()}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned char $\ast$ $>$ \& Volume\+::get\+Slices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a reference to the raw slice data. 
+
+Provides access to the underlying slice data stored as raw unsigned char pointers, allowing for direct manipulation or analysis of the slice data.
+
+\begin{DoxyReturn}{Returns}
+A reference to the vector of slice pointers. 
+\end{DoxyReturn}
+\label{class_volume_a54985dd879318e17a0f7496c17e9002d} 
+\index{Volume@{Volume}!getVolumeDoubleNonConst@{getVolumeDoubleNonConst}}
+\index{getVolumeDoubleNonConst@{getVolumeDoubleNonConst}!Volume@{Volume}}
+\doxysubsubsection{getVolumeDoubleNonConst()}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \& Volume\+::get\+Volume\+Double\+Non\+Const (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Accessors for the volume data in double-\/precision format. 
+
+get\+Volume\+Double\+Non\+Const returns a non-\/const reference allowing modification of the volume data, while get\+Volume\+Double provides read-\/only access to the data.
+
+\begin{DoxyReturn}{Returns}
+Reference or const reference to the volume\textquotesingle{}s double-\/precision data. 
+\end{DoxyReturn}
+\label{class_volume_a6421ea4fb9b499e51499531dbc6999d5} 
+\index{Volume@{Volume}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Volume@{Volume}}
+\doxysubsubsection{getWidth()}
+{\footnotesize\ttfamily int Volume\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Accessors for the dimensions of the volume. 
+
+These methods return the width, height, and depth of the volume, respectively, providing information about the size of the volumetric data.
+
+\begin{DoxyReturn}{Returns}
+The dimension specified by the method name. 
+\end{DoxyReturn}
+\label{class_volume_ad9ce9f71cf6fdd61ea6f33e076ee22a7} 
+\index{Volume@{Volume}!loadFromDirectory@{loadFromDirectory}}
+\index{loadFromDirectory@{loadFromDirectory}!Volume@{Volume}}
+\doxysubsubsection{loadFromDirectory()}
+{\footnotesize\ttfamily bool Volume\+::load\+From\+Directory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{directory,  }\item[{int}]{start\+Index,  }\item[{int}]{final\+Index }\end{DoxyParamCaption})}
+
+
+
+Loads volume data from a directory of image files. 
+
+Iterates through image files in a specified directory, loading them as slices of the volume. Only files with a .png extension are considered. Images are expected to be named in a way that sorting them alphabetically orders them correctly by slice index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & Directory containing the slice images. \\
+\hline
+{\em start\+Index} & Index of the first slice to load. \\
+\hline
+{\em final\+Index} & Index of the last slice to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the volume is loaded successfully, false otherwise. 
+\end{DoxyReturn}
+\label{class_volume_aecfd4f9e2f8e3b53c3e59a1bcd880eb4} 
+\index{Volume@{Volume}!loadFromDirectory\_filter@{loadFromDirectory\_filter}}
+\index{loadFromDirectory\_filter@{loadFromDirectory\_filter}!Volume@{Volume}}
+\doxysubsubsection{loadFromDirectory\_filter()}
+{\footnotesize\ttfamily bool Volume\+::load\+From\+Directory\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{directory\+Path,  }\item[{int}]{start\+Index,  }\item[{int}]{final\+Index }\end{DoxyParamCaption})}
+
+
+
+Loads and optionally filters volume data from a directory of image files. 
+
+Similar to load\+From\+Directory, but includes an additional step that may apply filtering to the loaded slices. This method demonstrates an extension point for preprocessing slice data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory\+Path} & Directory containing the slice images. \\
+\hline
+{\em start\+Index} & Index of the first slice to load. \\
+\hline
+{\em final\+Index} & Index of the last slice to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the volume is loaded and filtered successfully, false otherwise. 
+\end{DoxyReturn}
+\label{class_volume_aab3289b2569da75d25ff41d72053a0d0} 
+\index{Volume@{Volume}!saveVolume@{saveVolume}}
+\index{saveVolume@{saveVolume}!Volume@{Volume}}
+\doxysubsubsection{saveVolume()}
+{\footnotesize\ttfamily void Volume\+::save\+Volume (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{directory }\end{DoxyParamCaption}) const}
+
+
+
+Saves the volume data back to a series of image files. 
+
+Exports the volume data to image files, storing each slice as a separate image. The files are saved within a specified directory, with filenames indicating the slice index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & Directory where the slice images will be saved. \\
+\hline
+\end{DoxyParams}
+\label{class_volume_acb8c7f0f838b157f06180e1ae4b3f1b6} 
+\index{Volume@{Volume}!setData@{setData}}
+\index{setData@{setData}!Volume@{Volume}}
+\doxysubsubsection{setData()}
+{\footnotesize\ttfamily void Volume\+::set\+Data (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \&}]{volume\+Data }\end{DoxyParamCaption})}
+
+
+
+Sets the volume\textquotesingle{}s data with a provided 3D vector. 
+
+Allows for the replacement of the entire volume\textquotesingle{}s data with new data. This method can be used for updating the volume after processing or transformations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume\+Data} & New data to replace the current volume data. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Volume.\+h\item 
+src/Volume.\+cpp\end{DoxyCompactItemize}

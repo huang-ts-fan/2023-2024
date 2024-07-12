@@ -1,0 +1,44 @@
+\doxysection{Image.\+h}
+\label{_image_8h_source}\index{src/Image.h@{src/Image.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Group\ Name:\ Depth\ First\ Search}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Group\ Members:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ -\/\ Alex\ Njeumi(Acse-\/ann23)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ -\/\ Yixiao\ Jing(acse-\/yj823)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ -\/\ Andrei\ Danila(edsml-\/acd23)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ -\/\ Fan\ Huang(acse-\/fh223)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/\ Shrreya\ Behll(edsml-\/sb3323)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ -\/\ Wenxin\ Zhang(acse-\/wz2723)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ IMAGE\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ IMAGE\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }Image\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ Image();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{explicit}\ Image(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00056\ \ \ \ \ \string~Image();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadImage(\textcolor{keyword}{const}\ std::string\&\ filename);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ saveImage(\textcolor{keyword}{const}\ std::string\&\ filename)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ getWidth()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ getHeight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ getChannels()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<unsigned\ char>\ >\ >\&\ getData()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ Image\ convertToGrayscale(\textcolor{keyword}{const}\ Image\&\ img);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ setData(\textcolor{keyword}{const}\ std::vector<std::vector<std::vector<unsigned\ char>\ >\ >\&\ data);}
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height,\ channels;}
+\DoxyCodeLine{00070\ \ \ \ \ std::vector<std::vector<std::vector<unsigned\ char>\ >\ >\ data;\ \textcolor{comment}{//\ 3D\ vector\ for\ RGB,\ 2D\ vector\ for\ grayscale}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ allocateData(\textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{00073\ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ IMAGE\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,329 @@
+\doxysection{Filter Class Reference}
+\label{class_filter}\index{Filter@{Filter}}
+
+
+A collection of static methods for applying various image processing techniques.  
+
+
+
+
+{\ttfamily \#include $<$Filter.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ apply\+Gray\+Scale} (\textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Converts an image to grayscale. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Brightness\+Dullness} (\textbf{ Image} \&img, int brightness)
+\begin{DoxyCompactList}\small\item\em Adjusts the brightness of an image. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Grayscale\+Equalization} (\textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Applies histogram equalization on a grayscale image. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+RGB\+\_\+\+HSVEqualization} (\textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Applies histogram equalization on an image in RGB, HSV, or HSL color space. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+RGB\+\_\+\+HSLEqualization} (\textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Applies histogram equalization on an image in RGB, HSV, or HSL color space. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Threshold} (\textbf{ Image} \&img, char L\+\_\+or\+\_\+\+V\+\_\+or\+\_\+G, float threshold)
+\begin{DoxyCompactList}\small\item\em Applies a threshold operation to an image. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Salt\+Pepper\+Noise} (\textbf{ Image} \&img, int percentage)
+\begin{DoxyCompactList}\small\item\em Adds salt-\/and-\/pepper noise to an image. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Box\+Blur} (\textbf{ Image} \&img, int blur\+Size)
+\begin{DoxyCompactList}\small\item\em Applies box blur to an image using a specified blur size. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Gaussian\+Blur} (\textbf{ Image} \&img, double sigma, int kernel\+Size)
+\begin{DoxyCompactList}\small\item\em Applies Gaussian blur to an image using a specified standard deviation (sigma) and kernel size. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Median\+Blur} (\textbf{ Image} \&img, int kernel\+Size)
+\begin{DoxyCompactList}\small\item\em Applies median blur to an image using a specified kernel size. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Edge\+Detection} (\textbf{ Image} \&img, const float operatorX[3][3], const float operatorY[3][3])
+\begin{DoxyCompactList}\small\item\em Applies edge detection on an image using specified X and Y operator templates. \end{DoxyCompactList}\item 
+static void \textbf{ apply\+Roberts\+Cross\+Edge\+Detection} (\textbf{ Image} \&img)
+\begin{DoxyCompactList}\small\item\em Applies Roberts Cross edge detection on an image. \end{DoxyCompactList}\item 
+static void \textbf{ apply3\+DGaussian\+Blur} (\textbf{ Volume} \&volume, int size, double sigma=2.\+0)
+\begin{DoxyCompactList}\small\item\em Applies a 3D Gaussian blur to volumetric data. \end{DoxyCompactList}\item 
+static void \textbf{ apply3\+DMedian\+Filter} (\textbf{ Volume} \&volume, int size)
+\begin{DoxyCompactList}\small\item\em Applies a 3D median filter to volumetric data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A collection of static methods for applying various image processing techniques. 
+
+The \doxyref{Filter}{p.}{class_filter} class offers a suite of static methods for performing operations related to color correction, blurring, and edge detection on both 2D images and 3D volume data. This class acts as a centralized framework to facilitate easy application of complex image processing techniques. It is designed to be modular and easily extensible for integrating additional image processing functions in the future.\doxysubsubsection{Features\+:}\label{class_filter_autotoc_md0}
+
+\begin{DoxyItemize}
+\item Colour Correction\+: Includes methods for grayscale conversion, brightness adjustment, histogram equalization in various color spaces, and application of thresholding techniques.
+\item 2D Blur Functions\+: Provides box blur, Gaussian blur, and median blur functionalities to apply on 2D images, useful for noise reduction and image smoothing.
+\item Edge Detection\+: Implements edge detection algorithms using operator templates such as Sobel, Prewitt, and Roberts Cross, essential for feature detection and image analysis.
+\item 3D Blur Functions\+: Extends blurring techniques to 3D volumetric data, accommodating applications in medical imaging and scientific visualization.
+\end{DoxyItemize}
+
+Each method is static, allowing direct invocation on the {\ttfamily \doxyref{Filter}{p.}{class_filter}} class without needing an instance, simplifying the application of multiple filters on the same image or volume data. 
+
+\doxysubsection{Member Function Documentation}
+\label{class_filter_aa3b4bb56e820b8f06327a7b1772ebdb5} 
+\index{Filter@{Filter}!apply3DGaussianBlur@{apply3DGaussianBlur}}
+\index{apply3DGaussianBlur@{apply3DGaussianBlur}!Filter@{Filter}}
+\doxysubsubsection{apply3DGaussianBlur()}
+{\footnotesize\ttfamily void Filter\+::apply3\+DGaussian\+Blur (\begin{DoxyParamCaption}\item[{\textbf{ Volume} \&}]{volume,  }\item[{int}]{size,  }\item[{double}]{sigma = {\ttfamily 2.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies a 3D Gaussian blur to volumetric data. 
+
+This function uses a Gaussian kernel to smooth 3D data, effectively reducing noise and details in volumetric images. The blur intensity is controlled by the kernel size and the standard deviation (sigma) of the Gaussian distribution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & The 3D volume data to be blurred. \\
+\hline
+{\em size} & The size of the Gaussian kernel (cubic). \\
+\hline
+{\em sigma} & The standard deviation of the Gaussian distribution. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a07e7afb4784e040907b5351006683d66} 
+\index{Filter@{Filter}!apply3DMedianFilter@{apply3DMedianFilter}}
+\index{apply3DMedianFilter@{apply3DMedianFilter}!Filter@{Filter}}
+\doxysubsubsection{apply3DMedianFilter()}
+{\footnotesize\ttfamily void Filter\+::apply3\+DMedian\+Filter (\begin{DoxyParamCaption}\item[{\textbf{ Volume} \&}]{volume,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies a 3D median filter to volumetric data. 
+
+Filters the volume data by replacing each voxel with the median value from a cubic neighborhood defined by the kernel size. This method is effective in reducing noise while preserving edges in the volumetric data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em volume} & The 3D volume data to be filtered. \\
+\hline
+{\em size} & The size of the cubic kernel used for filtering. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_ad162bc1cc0949a25d4ea3f49ecd34d0d} 
+\index{Filter@{Filter}!applyBoxBlur@{applyBoxBlur}}
+\index{applyBoxBlur@{applyBoxBlur}!Filter@{Filter}}
+\doxysubsubsection{applyBoxBlur()}
+{\footnotesize\ttfamily void Filter\+::apply\+Box\+Blur (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{int}]{blur\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies box blur to an image using a specified blur size. 
+
+This function averages the pixel values within a square (box) defined by the blur size around each pixel to smooth the image, effectively reducing noise and detail. The function supports multi-\/channel images and ensures that the blurred image retains the same dimensions as the original.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to be blurred. \\
+\hline
+{\em blur\+Size} & The size of the box used to calculate the average. The box will have dimensions of (2$\ast$blur\+Size + 1) x (2$\ast$blur\+Size + 1). \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a410ce9d7cd9a484a0cd7d2faf4c179a2} 
+\index{Filter@{Filter}!applyBrightnessDullness@{applyBrightnessDullness}}
+\index{applyBrightnessDullness@{applyBrightnessDullness}!Filter@{Filter}}
+\doxysubsubsection{applyBrightnessDullness()}
+{\footnotesize\ttfamily void Filter\+::apply\+Brightness\+Dullness (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{int}]{brightness }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adjusts the brightness of an image. 
+
+Increases or decreases the brightness of an image based on the specified brightness parameter. Positive values increase brightness, while negative values decrease it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object whose brightness is to be adjusted. \\
+\hline
+{\em brightness} & The amount to adjust the brightness by. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_afde6dafb659be06750222faf8e168a85} 
+\index{Filter@{Filter}!applyEdgeDetection@{applyEdgeDetection}}
+\index{applyEdgeDetection@{applyEdgeDetection}!Filter@{Filter}}
+\doxysubsubsection{applyEdgeDetection()}
+{\footnotesize\ttfamily void Filter\+::apply\+Edge\+Detection (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{const float}]{operatorX[3][3],  }\item[{const float}]{operatorY[3][3] }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies edge detection on an image using specified X and Y operator templates. 
+
+This function uses two 3x3 operator templates to detect edges in the image by calculating the gradient magnitude for each pixel. The result is a grayscale image where edges are highlighted, useful for identifying the boundaries within images. Supports customization through different operators to achieve various edge detection effects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image on which to apply edge detection. \\
+\hline
+{\em operatorX} & The 3x3 matrix representing the X direction operator. \\
+\hline
+{\em operatorY} & The 3x3 matrix representing the Y direction operator. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a281cb5c1a145fec017202ddc67ee6f73} 
+\index{Filter@{Filter}!applyGaussianBlur@{applyGaussianBlur}}
+\index{applyGaussianBlur@{applyGaussianBlur}!Filter@{Filter}}
+\doxysubsubsection{applyGaussianBlur()}
+{\footnotesize\ttfamily void Filter\+::apply\+Gaussian\+Blur (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{double}]{sigma,  }\item[{int}]{kernel\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Gaussian blur to an image using a specified standard deviation (sigma) and kernel size. 
+
+Gaussian blur is applied by convolving the image with a Gaussian function, resulting in a smooth and blurred image. This function calculates a Gaussian kernel based on the provided sigma and kernel size, normalizes it, and then applies it to the image. The kernel size must be odd, and if an even size is provided, it\textquotesingle{}s incremented by one to make it odd. The function supports multi-\/channel images.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to be blurred. \\
+\hline
+{\em sigma} & The standard deviation of the Gaussian function, controlling the extent of blurring. \\
+\hline
+{\em kernel\+Size} & The size of the Gaussian kernel. It will be adjusted to the nearest odd number. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_afb556b23f06711204a3f120c2eedc8f1} 
+\index{Filter@{Filter}!applyGrayScale@{applyGrayScale}}
+\index{applyGrayScale@{applyGrayScale}!Filter@{Filter}}
+\doxysubsubsection{applyGrayScale()}
+{\footnotesize\ttfamily void Filter\+::apply\+Gray\+Scale (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts an image to grayscale. 
+
+This function applies grayscale conversion to the input image, reducing it to shades of gray by averaging the RGB values of each pixel or using a more sophisticated method of luminance calculation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to be converted to grayscale. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_af41512d83e35d2cfa2ac2870f5020a4a} 
+\index{Filter@{Filter}!applyGrayscaleEqualization@{applyGrayscaleEqualization}}
+\index{applyGrayscaleEqualization@{applyGrayscaleEqualization}!Filter@{Filter}}
+\doxysubsubsection{applyGrayscaleEqualization()}
+{\footnotesize\ttfamily void Filter\+::apply\+Grayscale\+Equalization (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies histogram equalization on a grayscale image. 
+
+This function enhances the contrast of a grayscale image by spreading out the most frequent intensity values, or by equalizing the histogram of the image.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The grayscale image to be equalized. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a83104b81015c19f4f7e4c68c1f977d3f} 
+\index{Filter@{Filter}!applyMedianBlur@{applyMedianBlur}}
+\index{applyMedianBlur@{applyMedianBlur}!Filter@{Filter}}
+\doxysubsubsection{applyMedianBlur()}
+{\footnotesize\ttfamily void Filter\+::apply\+Median\+Blur (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{int}]{kernel\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies median blur to an image using a specified kernel size. 
+
+Median blur is a non-\/linear filter that replaces each pixel\textquotesingle{}s value with the median value of the intensities in the neighborhood defined by the kernel size. This method is particularly effective at removing salt-\/and-\/pepper noise while preserving edges in the image. The function supports multi-\/channel images and uses a sliding window approach to apply the median filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to be processed. \\
+\hline
+{\em kernel\+Size} & The size of the square kernel used for the median filtering, which defines the neighborhood size for each pixel. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a41d4f2ce7942ed4176c1015a5cc74744} 
+\index{Filter@{Filter}!applyRGB\_HSLEqualization@{applyRGB\_HSLEqualization}}
+\index{applyRGB\_HSLEqualization@{applyRGB\_HSLEqualization}!Filter@{Filter}}
+\doxysubsubsection{applyRGB\_HSLEqualization()}
+{\footnotesize\ttfamily void Filter\+::apply\+RGB\+\_\+\+HSLEqualization (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies histogram equalization on an image in RGB, HSV, or HSL color space. 
+
+These functions convert the image to the specified color space (HSV or HSL), perform histogram equalization on the V/L channel (for brightness or lightness), and then convert the image back to RGB color space, enhancing the overall contrast.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image to be equalized in HSV or HSL color space. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a11d4c02a33b06cde75a1ac26c032db7e} 
+\index{Filter@{Filter}!applyRGB\_HSVEqualization@{applyRGB\_HSVEqualization}}
+\index{applyRGB\_HSVEqualization@{applyRGB\_HSVEqualization}!Filter@{Filter}}
+\doxysubsubsection{applyRGB\_HSVEqualization()}
+{\footnotesize\ttfamily void Filter\+::apply\+RGB\+\_\+\+HSVEqualization (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies histogram equalization on an image in RGB, HSV, or HSL color space. 
+
+These functions convert the image to the specified color space (HSV or HSL), perform histogram equalization on the V/L channel (for brightness or lightness), and then convert the image back to RGB color space, enhancing the overall contrast.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image to be equalized in HSV or HSL color space. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_ab68db18b940066fb3ef73178fd39a90f} 
+\index{Filter@{Filter}!applyRobertsCrossEdgeDetection@{applyRobertsCrossEdgeDetection}}
+\index{applyRobertsCrossEdgeDetection@{applyRobertsCrossEdgeDetection}!Filter@{Filter}}
+\doxysubsubsection{applyRobertsCrossEdgeDetection()}
+{\footnotesize\ttfamily void Filter\+::apply\+Roberts\+Cross\+Edge\+Detection (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies Roberts Cross edge detection on an image. 
+
+This function implements the Roberts Cross operator for edge detection, utilizing a 2x2 operator. It calculates the gradient magnitude using the Roberts Cross approximation to the derivative, highlighting the edges in the image as a result. This method is particularly effective for high-\/contrast edges, useful for edge detection in images with low noise.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image on which to apply Roberts Cross edge detection. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_ac80db0f96c618b612e029afa11809550} 
+\index{Filter@{Filter}!applySaltPepperNoise@{applySaltPepperNoise}}
+\index{applySaltPepperNoise@{applySaltPepperNoise}!Filter@{Filter}}
+\doxysubsubsection{applySaltPepperNoise()}
+{\footnotesize\ttfamily void Filter\+::apply\+Salt\+Pepper\+Noise (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{int}]{percentage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Adds salt-\/and-\/pepper noise to an image. 
+
+Randomly changes a percentage of pixels in the image to black (pepper) or white (salt), simulating a common type of noise seen in digital images.
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to add noise to. \\
+\hline
+{\em percentage} & The percentage of the image pixels that will be affected by noise. \\
+\hline
+\end{DoxyParams}
+\label{class_filter_a51c393ed3a42a47e6962edea2cbdb91d} 
+\index{Filter@{Filter}!applyThreshold@{applyThreshold}}
+\index{applyThreshold@{applyThreshold}!Filter@{Filter}}
+\doxysubsubsection{applyThreshold()}
+{\footnotesize\ttfamily void Filter\+::apply\+Threshold (\begin{DoxyParamCaption}\item[{\textbf{ Image} \&}]{img,  }\item[{char}]{L\+\_\+or\+\_\+\+V\+\_\+or\+\_\+G,  }\item[{float}]{threshold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Applies a threshold operation to an image. 
+
+Converts the image to a binary image, where pixels that meet the threshold criteria are set to one value (usually white), and all other pixels are set to another value (usually black).
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & The image object to be thresholded. \\
+\hline
+{\em L\+\_\+or\+\_\+\+V\+\_\+or\+\_\+G} & Specifies the channel (Luminance, Value, or Grayscale) to be used for thresholding. \\
+\hline
+{\em threshold} & The threshold value. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Filter.\+h\item 
+src/Filter.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,116 @@
+\doxysection{Projection Class Reference}
+\label{class_projection}\index{Projection@{Projection}}
+
+
+Provides static methods for generating 2D projections from 3D volumetric data.  
+
+
+
+
+{\ttfamily \#include $<$Projection.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ generate\+MIP} (const std\+::string \&filename, int width, int height, int depth, std\+::vector$<$ unsigned char $\ast$ $>$ \&slices)
+\begin{DoxyCompactList}\small\item\em Generates a Maximum Intensity \doxyref{Projection}{p.}{class_projection} (MIP) from volumetric data. \end{DoxyCompactList}\item 
+static void \textbf{ generate\+AIP} (const std\+::string \&filename, int width, int height, int depth, std\+::vector$<$ unsigned char $\ast$ $>$ \&slices)
+\begin{DoxyCompactList}\small\item\em Generates an Average Intensity \doxyref{Projection}{p.}{class_projection} (AIP) from volumetric data. \end{DoxyCompactList}\item 
+static void \textbf{ generate\+Min\+IP} (const std\+::string \&filename, int width, int height, int depth, std\+::vector$<$ unsigned char $\ast$ $>$ \&slices)
+\begin{DoxyCompactList}\small\item\em Generates a Minimum Intensity \doxyref{Projection}{p.}{class_projection} (Min\+IP) from volumetric data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides static methods for generating 2D projections from 3D volumetric data. 
+
+The \doxyref{Projection}{p.}{class_projection} class contains a set of static methods designed to create different types of intensity projections. These projections are useful in various fields, especially in medical imaging for visualizing the structure of complex volumes. Each method takes a set of volumetric slices and generates a 2D image based on specific intensity criteria\+:
+
+
+\begin{DoxyItemize}
+\item Maximum Intensity \doxyref{Projection}{p.}{class_projection} (MIP)\+: Highlights the highest intensity values, useful for visualizing bright structures against a darker background.
+\item Average Intensity \doxyref{Projection}{p.}{class_projection} (AIP)\+: Provides an overview of the average intensity values, useful for assessing the overall distribution of densities within the volume.
+\item Minimum Intensity \doxyref{Projection}{p.}{class_projection} (Min\+IP)\+: Emphasizes the lowest intensity values, often used for visualizing fluid-\/filled spaces and airways. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\label{class_projection_a1b7b642f0d582c67835deeebf05dda76} 
+\index{Projection@{Projection}!generateAIP@{generateAIP}}
+\index{generateAIP@{generateAIP}!Projection@{Projection}}
+\doxysubsubsection{generateAIP()}
+{\footnotesize\ttfamily void Projection\+::generate\+AIP (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{std\+::vector$<$ unsigned char $\ast$ $>$ \&}]{slices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates an Average Intensity \doxyref{Projection}{p.}{class_projection} (AIP) from volumetric data. 
+
+AIP calculates the average value along each ray traced through the data, providing a view that represents the average densities of structures throughout the volume. Often used to visualize soft tissues in medical imaging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path where the generated AIP image will be saved. \\
+\hline
+{\em width} & Width of each slice. \\
+\hline
+{\em height} & Height of each slice. \\
+\hline
+{\em depth} & Number of slices. \\
+\hline
+{\em slices} & Vector of pointers to the slice data. \\
+\hline
+\end{DoxyParams}
+\label{class_projection_a8eb1dd240f129db9dc148816ca676b8a} 
+\index{Projection@{Projection}!generateMinIP@{generateMinIP}}
+\index{generateMinIP@{generateMinIP}!Projection@{Projection}}
+\doxysubsubsection{generateMinIP()}
+{\footnotesize\ttfamily void Projection\+::generate\+Min\+IP (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{std\+::vector$<$ unsigned char $\ast$ $>$ \&}]{slices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a Minimum Intensity \doxyref{Projection}{p.}{class_projection} (Min\+IP) from volumetric data. 
+
+Min\+IP renders the lowest value encountered along each ray traced through the data to the viewer\textquotesingle{}s eye, making it useful for visualizing structures filled with air or fluid in medical imaging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path where the generated Min\+IP image will be saved. \\
+\hline
+{\em width} & Width of each slice. \\
+\hline
+{\em height} & Height of each slice. \\
+\hline
+{\em depth} & Number of slices. \\
+\hline
+{\em slices} & Vector of pointers to the slice data. \\
+\hline
+\end{DoxyParams}
+\label{class_projection_a680f401de67d36ef75629992193af304} 
+\index{Projection@{Projection}!generateMIP@{generateMIP}}
+\index{generateMIP@{generateMIP}!Projection@{Projection}}
+\doxysubsubsection{generateMIP()}
+{\footnotesize\ttfamily void Projection\+::generate\+MIP (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{depth,  }\item[{std\+::vector$<$ unsigned char $\ast$ $>$ \&}]{slices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a Maximum Intensity \doxyref{Projection}{p.}{class_projection} (MIP) from volumetric data. 
+
+MIP renders the highest value encountered along each ray traced through the data to the viewer\textquotesingle{}s eye, highlighting the brightest structures in the volume. Useful in medical imaging to visualize bones, vessels, etc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path where the generated MIP image will be saved. \\
+\hline
+{\em width} & Width of each slice. \\
+\hline
+{\em height} & Height of each slice. \\
+\hline
+{\em depth} & Number of slices. \\
+\hline
+{\em slices} & Vector of pointers to the slice data. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Projection.\+h\item 
+src/Projection.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,44 @@
+\doxysection{User\+Interface.\+h}
+\label{_user_interface_8h_source}\index{src/UserInterface.h@{src/UserInterface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Group\ Name:\ Depth\ First\ Search}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Group\ Members:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ -\/\ Alex\ Njeumi(Acse-\/ann23)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ -\/\ Yixiao\ Jing(acse-\/yj823)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ -\/\ Andrei\ Danila(edsml-\/acd23)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ -\/\ Fan\ Huang(acse-\/fh223)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/\ Shrreya\ Behll(edsml-\/sb3323)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ -\/\ Wenxin\ Zhang(acse-\/wz2723)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ USER\_INTERFACE\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ USER\_INTERFACE\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Image.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Volume.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }UserInterface\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ imageProcessing();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ 2D\ functions}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ twoD();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyEdgeDetection(std::unique\_ptr<Image>\ \&grayImage);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyImageBlur(std::unique\_ptr<Image>\ \&Image);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyColorCorrection(std::unique\_ptr<Image>\ \&Image);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<Image>\ loadImageFromUserInput();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ saveOutput(std::unique\_ptr<Image>\ \&img);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applySmoothing(std::unique\_ptr<Image>\ \&image);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ 3D\ functions}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ threeD();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyProjection(std::unique\_ptr<Volume>\ \&volume);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applySlice(std::unique\_ptr<Volume>\ \&volume);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ applyVolumeBlur(std::unique\_ptr<Volume>\ \&volume);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<Volume>\ loadVolumeFilter();}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<Volume>\ loadVolumeSlice();}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

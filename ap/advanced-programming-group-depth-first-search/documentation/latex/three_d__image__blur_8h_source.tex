@@ -1,0 +1,17 @@
+\doxysection{three\+D\+\_\+image\+\_\+blur.\+h}
+\label{three_d__image__blur_8h_source}\index{src/3D/threeD\_image\_blur.h@{src/3D/threeD\_image\_blur.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ threeD\_IMAGE\_BLUR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ threeD\_IMAGE\_BLUR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Volume.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ std::vector<std::vector<std::vector<double>>>\ generate3DGaussianKernel(\textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{double}\ sigma);}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ apply3DGaussianBlur(Volume\ \&volume,\ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<double>>>\&\ kernel);}
+\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ apply3DMedianFilter(Volume\ \&volume,\ \textcolor{keywordtype}{int}\ kernelSize);}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

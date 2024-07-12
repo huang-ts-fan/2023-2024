@@ -1,0 +1,48 @@
+\doxysection{Volume.\+h}
+\label{_volume_8h_source}\index{src/Volume.h@{src/Volume.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Group\ Name:\ Depth\ First\ Search}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Group\ Members:}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ -\/\ Alex\ Njeumi(Acse-\/ann23)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ -\/\ Yixiao\ Jing(acse-\/yj823)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ -\/\ Andrei\ Danila(edsml-\/acd23)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ -\/\ Fan\ Huang(acse-\/fh223)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ -\/\ Shrreya\ Behll(edsml-\/sb3323)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ -\/\ Wenxin\ Zhang(acse-\/wz2723)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ VOLUME\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VOLUME\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }Volume\ \{}
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ Volume();}
+\DoxyCodeLine{00048\ \ \ \ \ \string~Volume();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadFromDirectory(\textcolor{keyword}{const}\ std::string\&\ directory,\ \textcolor{keywordtype}{int}\ startIndex,\ \textcolor{keywordtype}{int}\ finalIndex);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ loadFromDirectory\_filter(\textcolor{keyword}{const}\ std::string\&\ directoryPath,\ \textcolor{keywordtype}{int}\ startIndex,\ \textcolor{keywordtype}{int}\ finalIndex);}
+\DoxyCodeLine{00052\ \ \ \ \ std::vector<unsigned\ char*>\ convertToCharPointers()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<std::vector<std::vector<double>>>\&\ getVolumeDoubleNonConst();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<std::vector<double>>>\&\ getVolumeDouble()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ setData(std::vector<std::vector<std::vector<double>>>\&\ volumeData);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ getWidth()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ getHeight()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ getDepth()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<unsigned\ char*>\&\ getSlices();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ saveVolume(\textcolor{keyword}{const}\ std::string\&\ directory)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height,\ depth;}
+\DoxyCodeLine{00065\ \ \ \ \ std::vector<unsigned\ char*>\ slices;}
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<std::vector<std::vector<double>>>\ volumeDouble;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00068\ \ \ \ \ T\ clamp(T\ value,\ T\ low,\ T\ high)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ <\ low)\ ?\ low\ :\ (value\ >\ high)\ ?\ high\ :\ value;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VOLUME\_H}}
+
+\end{DoxyCode}
