@@ -1,0 +1,8 @@
+livelossplot
+matplotlib
+numpy
+pandas
+scikit-learn
+statsmodels
+torch
+torchvision

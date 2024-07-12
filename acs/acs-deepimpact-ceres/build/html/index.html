@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to DeepImpact-Ceres’s documentation! &mdash; DeepImpact-Ceres V1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2281d4f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Locator Module" href="locator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            DeepImpact-Ceres
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="locator.html">Locator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="damage.html">Damage Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">DeepImpact-Ceres</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to DeepImpact-Ceres’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-deepimpact-ceres-s-documentation">
+<h1>Welcome to DeepImpact-Ceres’s documentation!<a class="headerlink" href="#welcome-to-deepimpact-ceres-s-documentation" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p><strong>DeepImpact</strong> is a comprehensive toolkit for modeling an asteroid’s interactions with a planet’s
+atmosphere. Given information about the asteroid, the DeepImpact package is able to determine if
+the asteroid will impact the planet, explode in the atmosphere, or reflect off the atmosphere.</p>
+<p>DeepImpact is also able to determine the damage done to the planet’s surface following either an
+airburst or an impact, as well the number of affected people. The multiple possible impacts of the
+asteroids can be graphed onto the same map, displaying the potential areas at risk with their respective
+potential for human impact represented by a color gradient.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>To install DeepImpact, follow the steps below:</p>
+<ol class="arabic simple">
+<li><p>Downlaod the ‘DeepImpact’ package to your local drive.</p></li>
+<li><p>Open a terminal window and navigate to the directory containing the ‘DeepImpact’ package.</p></li>
+<li><p>Create and activate the virtual environment by running the commands:
+<cite>python3 -m venv env</cite>
+<cite>source ./env/bin/activate</cite>
+<cite>pip install -r requirements.txt</cite>
+<cite>pip install -e .</cite></p></li>
+<li><p>The package is now installed and ready to be imported for use.</p></li>
+</ol>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<p>Here’s a quick example to get you started with DeepImpact:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">deepimpact</span>
+
+<span class="c1">#######################</span>
+<span class="c1">#   Airburst Solver   #</span>
+<span class="c1">#######################</span>
+
+<span class="c1"># Initialise the Planet class</span>
+<span class="n">earth</span> <span class="o">=</span> <span class="n">deepimpact</span><span class="o">.</span><span class="n">Planet</span><span class="p">()</span>
+
+<span class="c1"># Solve the atmospheric entry problem for a given set of input parameters</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">earth</span><span class="o">.</span><span class="n">solve_atmospheric_entry</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+                                       <span class="n">strength</span><span class="o">=</span><span class="mf">1e7</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mi">3000</span><span class="p">,</span>
+                                       <span class="n">velocity</span><span class="o">=</span><span class="mf">19e3</span><span class="p">)</span>
+
+<span class="c1"># Calculate the kinetic energy lost per unit altitude and add it</span>
+<span class="c1"># as a column to the result dataframe</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">earth</span><span class="o">.</span><span class="n">calculate_energy</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1"># Determine the outcomes of the impact event</span>
+<span class="n">outcome</span> <span class="o">=</span> <span class="n">earth</span><span class="o">.</span><span class="n">analyse_outcome</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="c1">#####################</span>
+<span class="c1">#   Damage Mapper   #</span>
+<span class="c1">#####################</span>
+
+<span class="c1"># Calculate the blast location and damage radius for several pressure levels</span>
+<span class="n">pressures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e3</span><span class="p">,</span> <span class="mf">4e3</span><span class="p">,</span> <span class="mf">30e3</span><span class="p">,</span> <span class="mf">50e3</span><span class="p">]</span>
+
+<span class="n">blast_lat</span><span class="p">,</span> <span class="n">blast_lon</span><span class="p">,</span> <span class="n">damage_rad</span> <span class="o">=</span> <span class="n">deepimpact</span><span class="o">.</span><span class="n">damage_zones</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span>
+                                                         <span class="n">lat</span><span class="o">=</span><span class="mf">55.2</span><span class="p">,</span> <span class="n">lon</span><span class="o">=-</span><span class="mf">2.5</span><span class="p">,</span>
+                                                         <span class="n">bearing</span><span class="o">=</span><span class="mf">217.</span><span class="p">,</span>
+                                                         <span class="n">pressures</span><span class="o">=</span><span class="n">pressures</span><span class="p">)</span>
+
+<span class="c1"># Plot a circle to show the limit of the lowest damage level</span>
+<span class="n">damage_map</span> <span class="o">=</span> <span class="n">deepimpact</span><span class="o">.</span><span class="n">plot_circle</span><span class="p">(</span><span class="n">blast_lat</span><span class="p">,</span> <span class="n">blast_lon</span><span class="p">,</span> <span class="n">damage_rad</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">damage_map</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;damage_map.html&quot;</span><span class="p">)</span>
+
+<span class="c1"># The GeospatialLocator tool</span>
+<span class="n">locator</span> <span class="o">=</span> <span class="n">deepimpact</span><span class="o">.</span><span class="n">GeospatialLocator</span><span class="p">()</span>
+
+<span class="c1"># Find the postcodes in the damage radii</span>
+<span class="n">postcodes</span> <span class="o">=</span> <span class="n">locator</span><span class="o">.</span><span class="n">get_postcodes_by_radius</span><span class="p">((</span><span class="n">blast_lat</span><span class="p">,</span> <span class="n">blast_lon</span><span class="p">),</span>
+                                          <span class="n">radii</span><span class="o">=</span><span class="n">damage_rad</span><span class="p">)</span>
+
+<span class="c1"># Find the population in each postcode</span>
+<span class="n">population</span> <span class="o">=</span> <span class="n">locator</span><span class="o">.</span><span class="n">get_population_by_radius</span><span class="p">((</span><span class="n">blast_lat</span><span class="p">,</span> <span class="n">blast_lon</span><span class="p">),</span>
+                                             <span class="n">radii</span><span class="o">=</span><span class="n">damage_rad</span><span class="p">)</span>
+
+<span class="c1"># Print the number of people affected in each damage zone</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pressure |      Damage | Population&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   (kPa) | radius (km) |   affected&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">pop</span><span class="p">,</span> <span class="n">rad</span><span class="p">,</span> <span class="n">zone</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">damage_rad</span><span class="p">,</span> <span class="n">pressures</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">zone</span><span class="o">/</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">8.0f</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">rad</span><span class="o">/</span><span class="mf">1e3</span><span class="si">:</span><span class="s2">11.1f</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">pop</span><span class="si">:</span><span class="s2">10,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Print the postcodes inside the highest damage zone</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Postcodes in the highest damage zone:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">postcodes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Example usage of impact_risk function</span>
+<span class="c1"># Uses the default file impact_parameter_list.csv in the resources folder</span>
+<span class="n">probability</span><span class="p">,</span> <span class="n">population</span> <span class="o">=</span> <span class="n">deepimpact</span><span class="o">.</span><span class="n">impact_risk</span><span class="p">(</span><span class="n">earth</span><span class="p">,</span> <span class="n">pressure</span><span class="o">=</span><span class="mf">30e3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">probability</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total population affected: &quot;</span> <span class="o">+</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">population</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2"> +/- </span><span class="si">{</span><span class="n">population</span><span class="p">[</span><span class="s1">&#39;stdev&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="api-documentation">
+<h2>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="locator.html">Locator Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="locator.html#deepimpact.locator.GeospatialLocator"><code class="docutils literal notranslate"><span class="pre">GeospatialLocator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="locator.html#deepimpact.locator.great_circle_distance"><code class="docutils literal notranslate"><span class="pre">great_circle_distance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mapping.html#deepimpact.mapping.plot_circle"><code class="docutils literal notranslate"><span class="pre">plot_circle()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping.html#deepimpact.mapping.plot_heatmap"><code class="docutils literal notranslate"><span class="pre">plot_heatmap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping.html#deepimpact.mapping.plot_meteor"><code class="docutils literal notranslate"><span class="pre">plot_meteor()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping.html#deepimpact.mapping.plot_meteors"><code class="docutils literal notranslate"><span class="pre">plot_meteors()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="solver.html#deepimpact.solver.Planet"><code class="docutils literal notranslate"><span class="pre">Planet</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="damage.html">Damage Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="damage.html#deepimpact.damage.damage_zones"><code class="docutils literal notranslate"><span class="pre">damage_zones()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="damage.html#deepimpact.damage.impact_risk"><code class="docutils literal notranslate"><span class="pre">impact_risk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="locator.html" class="btn btn-neutral float-right" title="Locator Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexandre Vander Elst, Liam J. Lamont, Jiawei Wang,Junhao Song, Naya Petala, Ningxin Li, Yongwen Chen, Fan Huang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

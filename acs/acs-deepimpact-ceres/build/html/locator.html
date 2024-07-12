@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locator Module &mdash; DeepImpact-Ceres V1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2281d4f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mapping Module" href="mapping.html" />
+    <link rel="prev" title="Welcome to DeepImpact-Ceres’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DeepImpact-Ceres
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Locator Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deepimpact.locator.GeospatialLocator"><code class="docutils literal notranslate"><span class="pre">GeospatialLocator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.locator.GeospatialLocator.cencus_name"><code class="docutils literal notranslate"><span class="pre">GeospatialLocator.cencus_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.locator.GeospatialLocator.get_population_by_radius"><code class="docutils literal notranslate"><span class="pre">GeospatialLocator.get_population_by_radius()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.locator.GeospatialLocator.get_postcodes_by_radius"><code class="docutils literal notranslate"><span class="pre">GeospatialLocator.get_postcodes_by_radius()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deepimpact.locator.great_circle_distance"><code class="docutils literal notranslate"><span class="pre">great_circle_distance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="damage.html">Damage Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeepImpact-Ceres</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Locator Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/locator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-deepimpact.locator">
+<span id="locator-module"></span><h1>Locator Module<a class="headerlink" href="#module-deepimpact.locator" title="Link to this heading"></a></h1>
+<p>Module dealing with postcode information.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="deepimpact.locator.GeospatialLocator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">deepimpact.locator.</span></span><span class="sig-name descname"><span class="pre">GeospatialLocator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">postcode_file='/Users/aov23/Documents/ACSE/Git/acs-deepimpact-ceres/deepimpact/../resources/full_postcodes.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">census_file='/Users/aov23/Documents/ACSE/Git/acs-deepimpact-ceres/deepimpact/../resources/UK_residential_population_2011_latlon.asc'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm=&lt;function</span> <span class="pre">great_circle_distance&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/locator.html#GeospatialLocator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.locator.GeospatialLocator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to interact with a postcode database file and a population grid file.
+<a class="reference external" href="https://chat.openai.com/share/aed3e848-4b08-4afb-b3eb-56d67437eeec">https://chat.openai.com/share/aed3e848-4b08-4afb-b3eb-56d67437eeec</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="deepimpact.locator.GeospatialLocator.cencus_name">
+<span class="sig-name descname"><span class="pre">cencus_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UK_residential_population_2011_latlon.asc'</span></em><a class="headerlink" href="#deepimpact.locator.GeospatialLocator.cencus_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.locator.GeospatialLocator.get_population_by_radius">
+<span class="sig-name descname"><span class="pre">get_population_by_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/locator.html#GeospatialLocator.get_population_by_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.locator.GeospatialLocator.get_population_by_radius" title="Link to this definition"></a></dt>
+<dd><p>Return the population within specific distances of input location.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>X<span class="classifier">arraylike</span></dt><dd><p>Latitude-longitude pair of centre location</p>
+</dd>
+<dt>radii<span class="classifier">arraylike</span></dt><dd><p>array of radial distances from X</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>population_radii: list</dt><dd><p>Contains the population closer than the elements of radii to
+the location X. Output should be the same shape as the radii array.</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loc</span> <span class="o">=</span> <span class="n">GeospatialLocator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loc</span><span class="o">.</span><span class="n">get_population_by_radius</span><span class="p">((</span><span class="mf">51.4981</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1773</span><span class="p">),</span> <span class="p">[</span><span class="mf">1e2</span><span class="p">,</span> <span class="mf">5e2</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">])</span>
+<span class="go">[0, 7412, 27794]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.locator.GeospatialLocator.get_postcodes_by_radius">
+<span class="sig-name descname"><span class="pre">get_postcodes_by_radius</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radii</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/locator.html#GeospatialLocator.get_postcodes_by_radius"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.locator.GeospatialLocator.get_postcodes_by_radius" title="Link to this definition"></a></dt>
+<dd><p>Return postcodes within specific distances of
+input location.
+<a class="reference external" href="https://chat.openai.com/share/4c837ecd-06e2-4c01-840a-db4b01148bd5">https://chat.openai.com/share/4c837ecd-06e2-4c01-840a-db4b01148bd5</a></p>
+<section id="id1">
+<h2>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>X<span class="classifier">arraylike</span></dt><dd><p>Latitude-longitude pair of centre location</p>
+</dd>
+<dt>radii<span class="classifier">arraylike</span></dt><dd><p>array of radial distances from X</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>postcodes_radii: list of lists</dt><dd><p>Contains the lists of postcodes closer than the elements
+of radii to the location X.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Examples:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">locator</span> <span class="o">=</span> <span class="n">GeospatialLocator</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">locator</span><span class="o">.</span><span class="n">get_postcodes_by_radius</span><span class="p">((</span><span class="mf">51.4981</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1773</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">[</span><span class="mf">1.5e-3</span><span class="p">])</span>
+<span class="go">[[]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">locator</span><span class="o">.</span><span class="n">get_postcodes_by_radius</span><span class="p">((</span><span class="mf">51.4981</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1773</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">[</span><span class="mf">1.5e-3</span><span class="p">,</span> <span class="mf">4.0e-3</span><span class="p">])</span>
+<span class="go">[[], []]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deepimpact.locator.great_circle_distance">
+<span class="sig-prename descclassname"><span class="pre">deepimpact.locator.</span></span><span class="sig-name descname"><span class="pre">great_circle_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latlon1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latlon2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/locator.html#great_circle_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.locator.great_circle_distance" title="Link to this definition"></a></dt>
+<dd><p>Calculate the great circle distance (in metres) between pairs of
+points specified as latitude and longitude on a spherical Earth
+(with radius 6371 km).</p>
+<section id="id4">
+<h2>Parameters:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>latlon1: arraylike</dt><dd><p>latitudes and longitudes of first point (as [n, 2] array for n points)</p>
+</dd>
+<dt>latlon2: arraylike</dt><dd><p>latitudes and longitudes of second point (as [m, 2] array for m points)</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Returns:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>distance: numpy.ndarray</dt><dd><p>Distance in metres between each pair of points (as an n x m array)</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h2>Examples:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fmt</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">format_float_scientific</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">numpy</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="n">fmt</span><span class="p">}):</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">great_circle_distance</span><span class="p">([[</span><span class="mf">54.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]],</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]))</span>
+<span class="go">[[1.286e+05]</span>
+<span class="go"> [6.378e+04]]</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DeepImpact-Ceres’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mapping.html" class="btn btn-neutral float-right" title="Mapping Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexandre Vander Elst, Liam J. Lamont, Jiawei Wang,Junhao Song, Naya Petala, Ningxin Li, Yongwen Chen, Fan Huang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

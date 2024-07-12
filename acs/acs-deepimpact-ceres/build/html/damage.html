@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Damage Module &mdash; DeepImpact-Ceres V1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2281d4f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Solver Module" href="solver.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DeepImpact-Ceres
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="locator.html">Locator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solver.html">Solver Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Damage Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deepimpact.damage.damage_zones"><code class="docutils literal notranslate"><span class="pre">damage_zones()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deepimpact.damage.impact_risk"><code class="docutils literal notranslate"><span class="pre">impact_risk()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeepImpact-Ceres</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Damage Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/damage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-deepimpact.damage">
+<span id="damage-module"></span><h1>Damage Module<a class="headerlink" href="#module-deepimpact.damage" title="Link to this heading"></a></h1>
+<p>Module to calculate the damage and impact risk for given scenarios</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="deepimpact.damage.damage_zones">
+<span class="sig-prename descclassname"><span class="pre">deepimpact.damage.</span></span><span class="sig-name descname"><span class="pre">damage_zones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outcome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bearing</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressures</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/damage.html#damage_zones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.damage.damage_zones" title="Link to this definition"></a></dt>
+<dd><p>Calculate the latitude and longitude of the surface zero location and the
+list of airblast damage radii (m) for a given impact scenario.</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>outcome: Dict</dt><dd><p>the outcome dictionary from an impact scenario</p>
+</dd>
+<dt>lat: float</dt><dd><p>latitude of the meteoroid entry point (degrees)</p>
+</dd>
+<dt>lon: float</dt><dd><p>longitude of the meteoroid entry point (degrees)</p>
+</dd>
+<dt>bearing: float</dt><dd><p>Bearing (azimuth) relative to north of meteoroid trajectory (degrees)</p>
+</dd>
+<dt>pressures: float, arraylike</dt><dd><p>List of threshold pressures to define airblast damage levels</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>blat: float</dt><dd><p>latitude of the surface zero point (degrees)</p>
+</dd>
+<dt>blon: float</dt><dd><p>longitude of the surface zero point (degrees)</p>
+</dd>
+<dt>damrad: arraylike, float</dt><dd><p>List of distances specifying the blast radii
+for the input damage levels</p>
+</dd>
+</dl>
+</section>
+<section id="examples">
+<h2>Examples:<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">deepimpact</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">outcome</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;burst_altitude&#39;</span><span class="p">:</span> <span class="mf">8e3</span><span class="p">,</span> <span class="s1">&#39;burst_energy&#39;</span><span class="p">:</span> <span class="mf">7e3</span><span class="p">,</span>
+<span class="go">               &#39;burst_distance&#39;: 90e3, &#39;burst_peak_dedz&#39;: 1e3,</span>
+<span class="go">               &#39;outcome&#39;: &#39;Airburst&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">deepimpact</span><span class="o">.</span><span class="n">damage_zones</span><span class="p">(</span><span class="n">outcome</span><span class="p">,</span> <span class="mf">52.79</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.95</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span>
+<span class="go">                            pressures=[1e3, 3.5e3, 27e3, 43e3])</span>
+</pre></div>
+</div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deepimpact.damage.impact_risk">
+<span class="sig-prename descclassname"><span class="pre">deepimpact.damage.</span></span><span class="sig-name descname"><span class="pre">impact_risk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">planet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impact_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/Users/aov23/Documents/ACSE/Git/acs-deepimpact-ceres/deepimpact/../resources/impact_parameter_list.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsamples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/damage.html#impact_risk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.damage.impact_risk" title="Link to this definition"></a></dt>
+<dd><p>Perform an uncertainty analysis to calculate the probability for
+each affected UK postcode and the total population affected.</p>
+<section id="id1">
+<h2>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>planet: deepimpact.Planet instance</dt><dd><p>The Planet instance from which to solve the atmospheric entry</p>
+</dd>
+<dt>impact_file: str</dt><dd><p>Filename of a .csv file containing the impact parameter list
+with columns for ‘radius’, ‘angle’, ‘velocity’, ‘strength’,
+‘density’, ‘entry latitude’, ‘entry longitude’, ‘bearing’</p>
+</dd>
+<dt>pressure: float</dt><dd><p>A single pressure at which to calculate the damage zone for each impact</p>
+</dd>
+<dt>nsamples: int or None</dt><dd><p>The number of iterations to perform in the uncertainty analysis.
+If None, the full set of impact parameters provided in impact_file
+is used.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h2>Returns:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>probability: DataFrame</dt><dd><p>A pandas DataFrame with columns for postcode and the
+probability the postcode was inside the blast radius.</p>
+</dd>
+<dt>population: dict</dt><dd><p>A dictionary containing the mean and standard deviation of the
+population affected by the impact, with keys ‘mean’ and ‘stdev’.
+Values are floats.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="solver.html" class="btn btn-neutral float-left" title="Solver Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexandre Vander Elst, Liam J. Lamont, Jiawei Wang,Junhao Song, Naya Petala, Ningxin Li, Yongwen Chen, Fan Huang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

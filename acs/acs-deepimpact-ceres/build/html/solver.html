@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solver Module &mdash; DeepImpact-Ceres V1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2281d4f"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Damage Module" href="damage.html" />
+    <link rel="prev" title="Mapping Module" href="mapping.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DeepImpact-Ceres
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="locator.html">Locator Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mapping.html">Mapping Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Solver Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#deepimpact.solver.Planet"><code class="docutils literal notranslate"><span class="pre">Planet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.analyse_outcome"><code class="docutils literal notranslate"><span class="pre">Planet.analyse_outcome()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.calculate_energy"><code class="docutils literal notranslate"><span class="pre">Planet.calculate_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.calculate_kinetic_energy"><code class="docutils literal notranslate"><span class="pre">Planet.calculate_kinetic_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.calculate_mass"><code class="docutils literal notranslate"><span class="pre">Planet.calculate_mass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.calculate_slopes"><code class="docutils literal notranslate"><span class="pre">Planet.calculate_slopes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deepimpact.solver.Planet.solve_atmospheric_entry"><code class="docutils literal notranslate"><span class="pre">Planet.solve_atmospheric_entry()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="damage.html">Damage Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeepImpact-Ceres</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Solver Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/solver.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-deepimpact.solver">
+<span id="solver-module"></span><h1>Solver Module<a class="headerlink" href="#module-deepimpact.solver" title="Link to this heading"></a></h1>
+<p>This module contains the atmospheric entry solver class
+for the Deep Impact project</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">deepimpact.solver.</span></span><span class="sig-name descname"><span class="pre">Planet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atmos_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'exponential'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atmos_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/Users/aov23/Documents/ACSE/Git/acs-deepimpact-ceres/deepimpact/../resources/AltitudeDensityTable.csv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6371000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9.81</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class called Planet is initialised with constants appropriate
+for the given target planet, including the atmospheric density profile
+and other constants</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.analyse_outcome">
+<span class="sig-name descname"><span class="pre">analyse_outcome</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.analyse_outcome"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.analyse_outcome" title="Link to this definition"></a></dt>
+<dd><p>Inspect a pre-found solution to calculate the impact and airburst stats</p>
+<section id="parameters">
+<h2>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>result<span class="classifier">DataFrame</span></dt><dd><p>pandas dataframe with velocity, mass, angle, altitude, horizontal
+distance, radius and dedz as a function of time</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>outcome<span class="classifier">Dict</span></dt><dd><p>dictionary with details of the impact event, which should contain
+the key: <code class="docutils literal notranslate"><span class="pre">outcome</span></code> (which should contain one of the following
+strings: <code class="docutils literal notranslate"><span class="pre">Airburst</span></code> or <code class="docutils literal notranslate"><span class="pre">Cratering</span></code>),
+as well as the following 4 keys: <code class="docutils literal notranslate"><span class="pre">burst_peak_dedz</span></code>,
+<code class="docutils literal notranslate"><span class="pre">burst_altitude</span></code>, <code class="docutils literal notranslate"><span class="pre">burst_distance</span></code>, <code class="docutils literal notranslate"><span class="pre">burst_energy</span></code></p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.calculate_energy">
+<span class="sig-name descname"><span class="pre">calculate_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.calculate_energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.calculate_energy" title="Link to this definition"></a></dt>
+<dd><p>Function to calculate the kinetic energy lost per unit altitude in
+kilotons TNT per km, for a given solution.</p>
+<section id="id1">
+<h2>Parameters:<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>result: DataFrame</dt><dd><p>A pandas dataframe with columns for the velocity, mass, angle,
+altitude, horizontal distance and radius as a function of time</p>
+</dd>
+<dt>Returns: DataFrame</dt><dd><p>Returns the dataframe with additional column <code class="docutils literal notranslate"><span class="pre">dedz</span></code> which is the
+kinetic energy lost per unit altitude</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.calculate_kinetic_energy">
+<span class="sig-name descname"><span class="pre">calculate_kinetic_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.calculate_kinetic_energy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.calculate_kinetic_energy" title="Link to this definition"></a></dt>
+<dd><p>Calculate the kinetic energy of a body given its mass and velocity,
+and convert it to kilotons.</p>
+<section id="id2">
+<h2>Parameters:<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>mass: float</dt><dd><p>The mass of the body in kilograms.</p>
+</dd>
+<dt>velocity: float</dt><dd><p>The velocity of the body in meters per second.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>Returns:<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>energy_kilotons: float</dt><dd><p>The kinetic energy of the body in kilotons of TNT equivalent.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.calculate_mass">
+<span class="sig-name descname"><span class="pre">calculate_mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.calculate_mass"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.calculate_mass" title="Link to this definition"></a></dt>
+<dd><p>Calculate the mass of a sphere given its density and radius.</p>
+<section id="id4">
+<h2>Parameters:<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>radius: float</dt><dd><p>The radius of the sphere.</p>
+</dd>
+<dt>density: float</dt><dd><p>The density of the sphere</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h2>Returns:<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>mass: float</dt><dd><p>The mass of the sphere.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.calculate_slopes">
+<span class="sig-name descname"><span class="pre">calculate_slopes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.calculate_slopes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.calculate_slopes" title="Link to this definition"></a></dt>
+<dd><p>Calculate the slopes for each equation.
+Function written with the assistance of chat-GPT</p>
+<section id="id6">
+<h2>Parameters:<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>radius: float</dt><dd><p>The current radius of the asteroid.</p>
+</dd>
+<dt>v: float</dt><dd><p>The current velocity of the asteroid.</p>
+</dd>
+<dt>m: float</dt><dd><p>The current mass of the asteroid.</p>
+</dd>
+<dt>theta: float</dt><dd><p>The current trajectory angle of the asteroid.</p>
+</dd>
+<dt>z: float</dt><dd><p>The current altitude of the asteroid.</p>
+</dd>
+<dt>density: float</dt><dd><p>The current density of the asteroid.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h2>Returns:<a class="headerlink" href="#id7" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Returns: tuple</dt><dd><p>The slope: (dv_dt, dm_dt, dtheta_dt, dz_dt, dx_dt)</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="deepimpact.solver.Planet.solve_atmospheric_entry">
+<span class="sig-name descname"><span class="pre">solve_atmospheric_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_altitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radians</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/deepimpact/solver.html#Planet.solve_atmospheric_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#deepimpact.solver.Planet.solve_atmospheric_entry" title="Link to this definition"></a></dt>
+<dd><p>Solve the system of differential equations for a given impact scenario
+Function written with the assistance of chat-GPT</p>
+<section id="id8">
+<h2>Parameters:<a class="headerlink" href="#id8" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>radius: float</dt><dd><p>The radius of the asteroid in meters</p>
+</dd>
+<dt>velocity: float</dt><dd><p>The entery speed of the asteroid in meters/second</p>
+</dd>
+<dt>density: float</dt><dd><p>The density of the asteroid in kg/m^3</p>
+</dd>
+<dt>strength: float</dt><dd><p>The strength of the asteroid (i.e. the maximum pressure it can
+take before fragmenting) in N/m^2</p>
+</dd>
+<dt>angle: float</dt><dd><p>The initial trajectory angle of the asteroid to the horizontal
+By default, input is in degrees. If ‘radians’ is set to True, the
+input should be in radians</p>
+</dd>
+<dt>init_altitude: float, optional</dt><dd><p>Initial altitude in m</p>
+</dd>
+<dt>dt: float, optional</dt><dd><p>The output timestep, in s</p>
+</dd>
+<dt>radians: logical, optional</dt><dd><p>Whether angles should be given in degrees or radians. Default=False
+Angles returned in the dataframe will have the same units as the
+input</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h2>Returns:<a class="headerlink" href="#id9" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>Result: DataFrame</dt><dd><p>A pandas dataframe containing the solution to the system.
+Includes the following columns:
+‘velocity’, ‘mass’, ‘angle’, ‘altitude’,
+‘distance’, ‘radius’, ‘time’</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mapping.html" class="btn btn-neutral float-left" title="Mapping Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="damage.html" class="btn btn-neutral float-right" title="Damage Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Alexandre Vander Elst, Liam J. Lamont, Jiawei Wang,Junhao Song, Naya Petala, Ningxin Li, Yongwen Chen, Fan Huang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
